@@ -1,8 +1,9 @@
-﻿#-------------------------------------------------------------------------------------------------
+﻿# -------------------------------------------------------------------------------------------------
 # Simple Powershell Script specific for automatic, unattended, scheduled binary installation of
 # WebFOCUS Reporting Server and iWay Data Migrator Servers
 # Creation Date: 02/09/2020
 # Developed by: Paul Prada
+# 
 #-------------------------------------------------------------------------------------------------
 
 #Setting Variabls 
@@ -13,12 +14,15 @@ $ZipFile = "i8206_742.zip"
 
 #TODO: Set Parm argument for Server zip file to install. For now creating statically with 8206_742.zip
 
+#TODO: Add logging 
+
 #Creating Destination Folder for server disk directory
 New-Item -ItemType Directory -Name $NewSrvRel -Path $BaseDir
 
 #Extracting Server file
 Expand-Archive -Path $BaseDir\$ZipFile  -DestinationPath $BaseDir\$NewSrvRel
 
+#TODO: Exit Condition if unsuccessful
 #Check Extract Operation Status
 $?
 
